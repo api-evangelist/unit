@@ -1,0 +1,29 @@
+aid: unit
+url: https://raw.githubusercontent.com/api-evangelist/unit/refs/heads/main/apis.yml
+name: Unit
+x-type: company
+description: >-
+  Unit is a banking-as-a-service platform that lets companies embed banking, cards, payments, and lending into their products via REST APIs and white-label UIs.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Fintech
+  - BaaS
+  - Banking
+  - Embedded Finance
+  - Cards
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://www.unit.co/
+  - type: Plans
+    url: plans/unit-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/unit-rate-limits.yml
+  - type: FinOps
+    url: finops/unit-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
