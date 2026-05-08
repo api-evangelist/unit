@@ -5,37 +5,70 @@ provider: Unit
 providerId: unit
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
-- Fintech
+- FinTech
 - BaaS
 - Banking
-- Embedded Finance
-- Cards
+- Payments
+- Card Issuing
+- ACH
 - Plans
-description: Placeholder plans/pricing artifact for Unit. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled against the provider's documentation.
+description: Unit is sold under custom contracts. Sandbox is free; production requires
+  a signed BaaS agreement with Unit and the partner bank. Fees include monthly platform,
+  per-transaction, per-card, ACH/wire, and interest sharing.
+notes: Pricing is not publicly listed.
 sources:
 - https://www.unit.co/
+- https://www.unit.co/docs/api
 plans:
-- id: unit-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: unit-sandbox
+  name: Sandbox
+  type: free
+  description: Free sandbox at https://api.s.unit.sh.
   entries:
-  - label: API Access
-    name: api_access
+  - label: Sandbox Access
+    name: sandbox
+    type: included
+    metric: api_calls
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0
+    userMultiplied: false
+  elements:
+  - name: All APIs
+  - name: Test Data
+- id: unit-production
+  name: Production (Custom)
+  type: enterprise
+  description: Custom production contract.
+  entries:
+  - label: Platform Fee
+    name: platform_fee
     type: flat
-    metric: varies
+    metric: subscription
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: negotiated
+    userMultiplied: false
+  - label: Per Transaction
+    name: txn_fee
+    type: metered
+    metric: transaction
     limit: -1
     timeFrame: usage
     geo: global
     unit: 1
-    price: see https://www.unit.co/
+    price: negotiated
     userMultiplied: false
   elements:
-  - name: Pending Reconciliation
+  - name: Partner Banks
+  - name: Production APIs
+  - name: PCI
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

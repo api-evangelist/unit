@@ -5,31 +5,34 @@ provider: Unit
 providerId: unit
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
-- Fintech
+- FinTech
 - BaaS
 - Banking
-- Embedded Finance
-- Cards
+- Payments
+- Card Issuing
+- ACH
 - Rate Limiting
-- Quotas
-- Throttling
-description: Placeholder rate-limit artifact for Unit. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: Unit enforces per-IP rate limits in addition to per-token throttling.
+notes: Sandbox and production limits differ.
 sources:
-- https://www.unit.co/
+- https://www.unit.co/docs/api/rate-limit
 responseCodes:
   throttled: 429
 limits:
-- name: Default
-  scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+- name: Per-IP RPS
+  scope: ip
+  metric: requests_per_minute
+  limit: 1000
+  notes: 1000 requests per minute per IP, separate limits in sandbox vs production.
 policies:
 - name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  description: Exponential backoff on 429.
+- name: Idempotency
+  description: Use idempotency-key headers on POST endpoints.
+- name: Customer Tokens
+  description: Use customer-scoped tokens for end-user actions per Unit security guidance.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

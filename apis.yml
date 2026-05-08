@@ -2,28 +2,59 @@ aid: unit
 url: https://raw.githubusercontent.com/api-evangelist/unit/refs/heads/main/apis.yml
 name: Unit
 x-type: company
-description: >-
-  Unit is a banking-as-a-service platform that lets companies embed banking, cards, payments, and lending into their products via REST APIs and white-label UIs.
+description: Unit is a Banking-as-a-Service platform offering REST APIs for customers
+  and applications, deposit/credit/wallet accounts, cards (issuance, authorizations,
+  disputes), payments (ACH, wire, book, batch), transactions, statements, and webhooks.
+  OAuth 2.0 with org-level and customer tokens; idempotency and tagging built in.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Fintech
-  - BaaS
-  - Banking
-  - Embedded Finance
-  - Cards
+- FinTech
+- BaaS
+- Banking
+- Payments
+- Card Issuing
+- ACH
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+- aid: unit:rest-api
+  name: Unit REST API
+  description: REST API covering Applications, Customers, Accounts (deposit/credit/wallet),
+    Cards (issue, authorizations, disputes), Payments (ACH, wire, book, batch), Transactions,
+    Statements, Tokens, and Webhooks. JSON:API style.
+  humanURL: https://www.unit.co/docs/api
+  baseURL: https://api.unit.co
+  tags:
+  - REST
+  - Banking
+  - Payments
+  - Card Issuing
+  properties:
+  - type: Documentation
+    url: https://www.unit.co/docs/api
+  - type: Sandbox
+    url: https://api.s.unit.sh
+- aid: unit:webhooks
+  name: Unit Webhooks
+  description: Outbound HTTP webhook delivery for events across applications, customers,
+    accounts, cards, transactions, payments, and disputes.
+  humanURL: https://www.unit.co/docs/api/webhooks
+  baseURL: https://api.unit.co/webhooks
+  tags:
+  - Webhooks
+  properties:
+  - type: Documentation
+    url: https://www.unit.co/docs/api/webhooks
 common:
-  - type: Website
-    url: https://www.unit.co/
-  - type: Plans
-    url: plans/unit-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/unit-rate-limits.yml
-  - type: FinOps
-    url: finops/unit-finops.yml
+- type: Website
+  url: https://www.unit.co/
+- type: Plans
+  url: plans/unit-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/unit-rate-limits.yml
+- type: FinOps
+  url: finops/unit-finops.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

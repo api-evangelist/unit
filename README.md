@@ -1,6 +1,8 @@
 # Unit (unit)
 
-Unit is a banking-as-a-service platform that lets companies embed banking, cards, payments, and lending into their products via REST APIs and white-label UIs.
+Unit is a Banking-as-a-Service platform offering REST APIs for customers and applications, deposit/credit/wallet accounts, cards (issuance, authorizations, disputes), payments (ACH, wire, book, batch), transactions, statements, and webhooks. OAuth 2.0 with org-level and customer tokens; idempotency and tagging built in.
+
+Unit publishes an OpenAPI spec referenced in their docs and SDK repos but does not host it at a stable public URL. Endpoints documented at https://www.unit.co/docs/api.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/unit/refs/heads/main/apis.yml)
 
@@ -9,8 +11,12 @@ Unit is a banking-as-a-service platform that lets companies embed banking, cards
 ## Type
 - **x-type:** company
 
-## Tags:
- - Fintech, BaaS, Banking, Embedded Finance, Cards
+## APIs
+- **Unit REST API** - REST API covering Applications, Customers, Accounts (deposit/credit/wallet), Cards (issue, authorizations, disputes), Payments (ACH, wire, book, batch), Transactions, Statements, Tokens, and Webhooks.
+- **Unit Webhooks** - Outbound HTTP webhook delivery for events across applications, customers, accounts, cards, transactions, payments, and disputes.
+
+## Tags
+ - FinTech, BaaS, Banking, Payments, Card Issuing, ACH
 
 ## Timestamps
 - **Created:** 2026-05-08
@@ -18,9 +24,9 @@ Unit is a banking-as-a-service platform that lets companies embed banking, cards
 
 ## Common Properties
 - [Website](https://www.unit.co/)
-- [Plans](plans/unit-plans-pricing.yml) — placeholder, pipeline reconciles later
-- [RateLimits](rate-limits/unit-rate-limits.yml) — placeholder
-- [FinOps](finops/unit-finops.yml) — FOCUS-aligned placeholder
+- [Plans](plans/unit-plans-pricing.yml)
+- [RateLimits](rate-limits/unit-rate-limits.yml)
+- [FinOps](finops/unit-finops.yml)
 
 ## Maintainers
 **FN:** Kin Lane
