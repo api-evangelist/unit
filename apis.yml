@@ -55,6 +55,14 @@ common:
   url: rate-limits/unit-rate-limits.yml
 - type: FinOps
   url: finops/unit-finops.yml
+- type: Integrations
+  url: https://www.unit.co/integrations
+integrations:
+  - name: The unit
+  - name: X (twitter)
+  - name: Linkedin
+  - name: PCI DSS Validated
+  - name: AICPA SOC
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
