@@ -1,7 +1,7 @@
 aid: unit
 url: https://raw.githubusercontent.com/api-evangelist/unit/refs/heads/main/apis.yml
 name: Unit
-x-type: company
+kind: company
 description: Unit is a Banking-as-a-Service platform offering REST APIs for customers
   and applications, deposit/credit/wallet accounts, cards (issuance, authorizations,
   disputes), payments (ACH, wire, book, batch), transactions, statements, and webhooks.
