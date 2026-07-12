@@ -47,6 +47,12 @@ apis:
     - type: Documentation
       url: https://www.unit.co/docs/api/webhooks
 common:
+  - type: TrustCenter
+    url: security/unit-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/unit-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/unit-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/unit-finance
   - type: Website
@@ -59,6 +65,8 @@ common:
     url: finops/unit-finops.yml
   - type: Integrations
     url: https://www.unit.co/integrations
+  - url: https://www.unit.co/blog/
+    type: Blog
 integrations:
   - name: The unit
   - name: X (twitter)
