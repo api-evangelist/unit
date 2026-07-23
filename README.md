@@ -1,8 +1,8 @@
 # Unit (unit)
 
-Unit is a Banking-as-a-Service platform offering REST APIs for customers and applications, deposit/credit/wallet accounts, cards (issuance, authorizations, disputes), payments (ACH, wire, book, batch), transactions, statements, and webhooks. OAuth 2.0 with org-level and customer tokens; idempotency and tagging built in.
+Unit is a US Banking-as-a-Service (BaaS) platform that lets companies embed banking, cards, and payments into their own products. Its REST API spans Applications, Customers, Accounts (deposit/credit/wallet/DACA), Cards, Payments (book/ACH/wire/recurring/received/cash), Checks, Card Authorizations, Disputes, Transactions, Statements, Tax Forms, Fees & Rewards, Credit repayments, Stop Payments, and Webhooks. Authentication uses organization and customer bearer tokens, with idempotency keys and resource tagging built in.
 
-Unit publishes an OpenAPI spec referenced in their docs and SDK repos but does not host it at a stable public URL. Endpoints documented at https://www.unit.co/docs/api.
+Unit publishes a public OpenAPI 3.0.2 specification at https://github.com/unit-finance/openapi-unit-sdk (openapi.json, 117 paths) and generates official Node, Python, Ruby, and Java SDKs from it. The spec has been harvested verbatim and split into 16 per-resource-family OpenAPI files under `openapi/`. Endpoints documented at https://www.unit.co/docs/api.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/unit/refs/heads/main/apis.yml)
 
@@ -12,15 +12,29 @@ Unit publishes an OpenAPI spec referenced in their docs and SDK repos but does n
 - **x-type:** company
 
 ## APIs
-- **Unit REST API** - REST API covering Applications, Customers, Accounts (deposit/credit/wallet), Cards (issue, authorizations, disputes), Payments (ACH, wire, book, batch), Transactions, Statements, Tokens, and Webhooks.
-- **Unit Webhooks** - Outbound HTTP webhook delivery for events across applications, customers, accounts, cards, transactions, payments, and disputes.
+- **Unit Applications API** - Onboarding: individual/business applications, forms, KYC/KYB documents, beneficial owners.
+- **Unit Customers API** - Customers, authorized/API users, archival, and customer-scoped tokens.
+- **Unit Accounts API** - Deposit, credit, wallet (FBO) and DACA accounts, limits, and relationships.
+- **Unit Cards API** - Card issuance, freeze/replace/report, limits, and secure PIN status.
+- **Unit Payments API** - Book/ACH/wire, recurring, received, and cash deposits, counterparties, returns, institutions.
+- **Unit Checks API** - Check payments (print-and-mail) and mobile check deposits.
+- **Unit Card Authorizations API** - Real-time authorization requests (approve/decline) and authorizations.
+- **Unit Disputes API** - Card transaction disputes and status.
+- **Unit Transactions API** - Account transaction listing and retrieval.
+- **Unit Statements API** - HTML/PDF and bank-branded statements.
+- **Unit Tax Forms API** - Tax forms and PDF renderings.
+- **Unit Fees and Rewards API** - Fee charge/reverse and rewards.
+- **Unit Credit and Repayments API** - Repayments and recurring repayments.
+- **Unit Stop Payments API** - Stop payments and positive-pay controls.
+- **Unit Webhooks and Events API** - Webhook registration and the events Unit emits.
+- **Unit Sandbox and Reference API** - Sandbox simulation endpoints and store/ATM location reference data.
 
 ## Tags
- - FinTech, BaaS, Banking, Payments, Card Issuing, ACH
+ - FinTech, BaaS, Banking, Payments, Card Issuing, ACH, United States, Embedded Finance, Deposit Accounts, Open Finance
 
 ## Timestamps
 - **Created:** 2026-05-08
-- **Modified:** 2026-05-08
+- **Modified:** 2026-07-23
 
 ## Common Properties
 - [Website](https://www.unit.co/)

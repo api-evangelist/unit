@@ -2,11 +2,28 @@ aid: unit
 url: https://raw.githubusercontent.com/api-evangelist/unit/refs/heads/main/apis.yml
 name: Unit
 kind: company
-description: Unit is a Banking-as-a-Service platform offering REST APIs for customers
-  and applications, deposit/credit/wallet accounts, cards (issuance, authorizations,
-  disputes), payments (ACH, wire, book, batch), transactions, statements, and webhooks.
-  OAuth 2.0 with org-level and customer tokens; idempotency and tagging built in.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+description: Unit is a US Banking-as-a-Service (BaaS) platform that lets companies
+  embed banking, cards, and payments into their own products. Its REST API — organized
+  around Applications, Customers, Accounts (deposit, credit, wallet/FBO, DACA), Cards,
+  Payments (book, ACH, wire, recurring, received, cash deposit), Checks, Card Authorizations,
+  Disputes, Transactions, Statements, Tax Forms, Fees & Rewards, Credit repayments,
+  Stop Payments, and Webhooks — is authenticated with organization and customer bearer
+  tokens and secured with idempotency keys and resource tagging. Unit publishes a public
+  OpenAPI 3.0.2 specification (openapi-unit-sdk) and generates official Node, Python,
+  Ruby, and Java SDKs from it.
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/unit.png
 tags:
   - FinTech
   - BaaS
@@ -14,59 +31,294 @@ tags:
   - Payments
   - Card Issuing
   - ACH
+  - United States
+  - Embedded Finance
+  - Deposit Accounts
+  - Open Finance
 created: '2026-05-08'
-modified: '2026-05-08'
+modified: '2026-07-23'
 specificationVersion: '0.19'
 apis:
-  - aid: unit:rest-api
-    name: Unit REST API
-    description: REST API covering Applications, Customers, Accounts (deposit/credit/wallet),
-      Cards (issue, authorizations, disputes), Payments (ACH, wire, book, batch), Transactions,
-      Statements, Tokens, and Webhooks. JSON:API style.
+  - aid: unit:applications
+    name: Unit Applications API
+    description: End-customer onboarding — create and manage individual and business
+      Applications, application forms, KYC/KYB document upload, verification, and beneficial
+      owners.
+    humanURL: https://www.unit.co/docs/api/applications
+    baseURL: https://api.unit.co
+    tags:
+    - Onboarding
+    - KYC
+    - Applications
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-applications-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/applications
+  - aid: unit:customers
+    name: Unit Customers API
+    description: Manage created Customers (individual and business), authorized and API
+      users, customer archival, and customer-scoped bearer tokens for end-user access.
+    humanURL: https://www.unit.co/docs/api/customers
+    baseURL: https://api.unit.co
+    tags:
+    - Customers
+    - Identity
+    - Tokens
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-customers-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/customers
+  - aid: unit:accounts
+    name: Unit Accounts API
+    description: Deposit, credit, wallet (FBO) and DACA accounts — open, close, freeze
+      and unfreeze, per-account limits, deposit products, customer relationships, and
+      repayment information.
+    humanURL: https://www.unit.co/docs/api/deposit-accounts
+    baseURL: https://api.unit.co
+    tags:
+    - Accounts
+    - Deposits
+    - Banking
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-accounts-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/deposit-accounts
+  - aid: unit:cards
+    name: Unit Cards API
+    description: Issue and manage debit and credit cards — create, close, freeze/unfreeze,
+      replace, report lost or stolen, set per-card limits, and check secure PIN status,
+      with mobile wallet integration.
+    humanURL: https://www.unit.co/docs/api/cards
+    baseURL: https://api.unit.co
+    tags:
+    - Cards
+    - Card Issuing
+    - Payments
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-cards-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/cards
+  - aid: unit:payments
+    name: Unit Payments API
+    description: Move money via Book, ACH and wire Payments plus recurring, received
+      (incoming ACH), and cash deposit flows, with counterparties, ACH returns, and
+      institution routing-number lookups.
+    humanURL: https://www.unit.co/docs/api/payments
+    baseURL: https://api.unit.co
+    tags:
+    - Payments
+    - ACH
+    - Wire
+    - Counterparties
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-payments-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/payments
+  - aid: unit:checks
+    name: Unit Checks API
+    description: Check payments (print-and-mail) and mobile check deposits — create,
+      approve, cancel, return, confirm, and manage front and back check images.
+    humanURL: https://www.unit.co/docs/api/check-payments
+    baseURL: https://api.unit.co
+    tags:
+    - Checks
+    - Payments
+    - Deposits
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-checks-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/check-payments
+  - aid: unit:authorizations
+    name: Unit Card Authorizations API
+    description: Real-time card authorization requests for programmatic approve/decline
+      control, plus retrieval and listing of completed card authorizations.
     humanURL: https://www.unit.co/docs/api
     baseURL: https://api.unit.co
     tags:
-    - REST
-    - Banking
-    - Payments
-    - Card Issuing
+    - Authorizations
+    - Cards
+    - Real-Time
     properties:
+    - type: OpenAPI
+      url: openapi/unit-authorizations-openapi.json
     - type: Documentation
       url: https://www.unit.co/docs/api
-    - type: Sandbox
-      url: https://api.s.unit.sh
+  - aid: unit:disputes
+    name: Unit Disputes API
+    description: Retrieve and list card transaction disputes and track their status
+      through the dispute lifecycle.
+    humanURL: https://www.unit.co/docs/api/disputes
+    baseURL: https://api.unit.co
+    tags:
+    - Disputes
+    - Cards
+    - Compliance
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-disputes-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/disputes
+  - aid: unit:transactions
+    name: Unit Transactions API
+    description: List and retrieve account transactions across all payment, card, fee,
+      and reward activity for reconciliation and ledgering.
+    humanURL: https://www.unit.co/docs/api/transactions
+    baseURL: https://api.unit.co
+    tags:
+    - Transactions
+    - Ledger
+    - Banking
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-transactions-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/transactions
+  - aid: unit:statements
+    name: Unit Statements API
+    description: Retrieve monthly account statements as HTML or PDF, including bank-branded
+      PDF statements for end customers.
+    humanURL: https://www.unit.co/docs/api/statements
+    baseURL: https://api.unit.co
+    tags:
+    - Statements
+    - Documents
+    - Banking
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-statements-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/statements
+  - aid: unit:tax-forms
+    name: Unit Tax Forms API
+    description: List and retrieve customer tax forms and download their PDF renderings
+      for year-end reporting.
+    humanURL: https://www.unit.co/docs/api/tax-forms
+    baseURL: https://api.unit.co
+    tags:
+    - Tax Forms
+    - Documents
+    - Compliance
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-tax-forms-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/tax-forms
+  - aid: unit:fees-rewards
+    name: Unit Fees and Rewards API
+    description: Charge and reverse Fees on accounts and create or retrieve Rewards paid
+      out to customer accounts.
+    humanURL: https://www.unit.co/docs/api/fees
+    baseURL: https://api.unit.co
+    tags:
+    - Fees
+    - Rewards
+    - Payments
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-fees-rewards-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/fees
+  - aid: unit:credit
+    name: Unit Credit and Repayments API
+    description: Credit account repayments and recurring repayments — create, retrieve,
+      and enable or disable scheduled repayments for lending programs.
+    humanURL: https://www.unit.co/docs/api/repayments
+    baseURL: https://api.unit.co
+    tags:
+    - Credit
+    - Lending
+    - Repayments
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-credit-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/repayments
+  - aid: unit:stop-payments
+    name: Unit Stop Payments API
+    description: Create, retrieve, and disable stop payments and positive-pay controls
+      to block or match expected payments on accounts.
+    humanURL: https://www.unit.co/docs/api/stop-payments
+    baseURL: https://api.unit.co
+    tags:
+    - Stop Payments
+    - Positive Pay
+    - Controls
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-stop-payments-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/stop-payments
   - aid: unit:webhooks
-    name: Unit Webhooks
-    description: Outbound HTTP webhook delivery for events across applications, customers,
-      accounts, cards, transactions, payments, and disputes.
+    name: Unit Webhooks and Events API
+    description: Register webhook endpoints, enable or disable delivery, and list and
+      retrieve the Events (resource state changes) Unit emits across the platform.
     humanURL: https://www.unit.co/docs/api/webhooks
-    baseURL: https://api.unit.co/webhooks
+    baseURL: https://api.unit.co
     tags:
     - Webhooks
+    - Events
+    - Notifications
     properties:
+    - type: OpenAPI
+      url: openapi/unit-webhooks-openapi.json
     - type: Documentation
       url: https://www.unit.co/docs/api/webhooks
+  - aid: unit:sandbox
+    name: Unit Sandbox and Reference API
+    description: Sandbox-only simulation endpoints (received ACH payments, ATM deposits,
+      card activation) plus store and ATM location reference data for testing integrations.
+    humanURL: https://www.unit.co/docs/api/sandbox
+    baseURL: https://api.s.unit.sh
+    tags:
+    - Sandbox
+    - Testing
+    - Reference Data
+    properties:
+    - type: OpenAPI
+      url: openapi/unit-sandbox-openapi.json
+    - type: Documentation
+      url: https://www.unit.co/docs/api/sandbox
 common:
+  - type: Website
+    url: https://www.unit.co/
+  - type: DeveloperPortal
+    url: https://www.unit.co/docs
+  - type: Documentation
+    url: https://www.unit.co/docs/api
+  - type: GitHubOrganization
+    url: https://github.com/unit-finance
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/unit-finance
+  - type: Blog
+    url: https://www.unit.co/blog/
+  - type: TermsOfService
+    url: https://www.unit.co/terms-conditions
+  - type: PrivacyPolicy
+    url: https://www.unit.co/privacy-policy
+  - type: StatusPage
+    url: https://status.unit.co/
+  - type: Security
+    url: https://www.unit.co/security
+  - type: Integrations
+    url: https://www.unit.co/integrations
   - type: TrustCenter
     url: security/unit-trust-center.yml
   - type: VulnerabilityDisclosure
     url: security/unit-vulnerability-disclosure.yml
   - type: DomainSecurity
     url: security/unit-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/unit-finance
-  - type: Website
-    url: https://www.unit.co/
   - type: Plans
     url: plans/unit-plans-pricing.yml
   - type: RateLimits
     url: rate-limits/unit-rate-limits.yml
   - type: FinOps
     url: finops/unit-finops.yml
-  - type: Integrations
-    url: https://www.unit.co/integrations
-  - url: https://www.unit.co/blog/
-    type: Blog
 integrations:
   - name: The unit
   - name: X (twitter)

@@ -1,0 +1,90 @@
+reviewer: API Evangelist
+date: '2026-07-23'
+provider: Unit
+slug: unit
+domain: unit.co
+segment: Banking-as-a-Service (BaaS)
+country: United States
+summary: >-
+  Unit is a US Banking-as-a-Service platform with a deep, well-documented,
+  first-party REST API for embedding banking, cards, and payments. Unlike most
+  chartered US banks (which expose HTML-only docs or partner-gated APIs), Unit
+  is fintech-grade: it publishes a public OpenAPI 3.0.2 specification and
+  auto-generates official SDKs from it. This is a genuinely rich developer
+  surface, not an aggregator-only posture.
+developer_portal: https://www.unit.co/docs
+documentation: https://www.unit.co/docs/api
+base_url: https://api.unit.co
+sandbox_base_url: https://api.s.unit.sh
+auth_model: >-
+  Bearer tokens. Two token classes documented — Organization API Tokens
+  (full org scope) and Customer API Tokens (scoped to a single customer for
+  end-user access). Represented in the OpenAPI as HTTP bearer securityScheme
+  (bearerAuth). Idempotency keys and resource tagging are first-class.
+downloadable_specs:
+  available: true
+  format: OpenAPI 3.0.2 (JSON)
+  source_repo: https://github.com/unit-finance/openapi-unit-sdk
+  source_url: https://raw.githubusercontent.com/unit-finance/openapi-unit-sdk/main/openapi.json
+  fetched_status: 200
+  fetched_date: '2026-07-23'
+  spec_version: 0.4.0
+  path_count: 117
+  provenance: >-
+    Harvested verbatim from unit-finance/openapi-unit-sdk (openapi.json,
+    the same spec Unit uses to generate its official Node/Python/Ruby/Java
+    SDKs). The public spec is a path/security inventory (117 paths, HTTP
+    bearerAuth) and does not include request/response schema bodies. Split
+    locally into 16 per-resource-family OpenAPI files under openapi/; the
+    original source retained as openapi/unit-openapi-source.json.
+official_sdks:
+  - https://github.com/unit-finance/unit-openapi-node-sdk
+  - https://github.com/unit-finance/unit-openapi-python-sdk
+  - https://github.com/unit-finance/unit-openapi-ruby-sdk
+  - https://github.com/unit-finance/unit-openapi-java-sdk
+  - https://github.com/unit-finance/unit-node-sdk
+  - https://github.com/unit-finance/unit-python-sdk
+  - https://github.com/unit-finance/unit-ruby-sdk
+open_finance_posture: >-
+  Unit is a money-movement/embedded-banking provider, not a data-aggregation
+  API, so FDX/CFPB-1033 consumer-permissioned data sharing is not its core
+  product. As a US BaaS operating through partner banks, account data reaches
+  aggregators (Plaid/MX/Finicity/Akoya) via the sponsor bank's connections
+  rather than a Unit-published FDX endpoint. No first-party FDX API surface
+  was found; this is aggregator/partner-bank mediated. Represented honestly
+  rather than padded.
+api_family:
+  - applications
+  - customers
+  - accounts
+  - cards
+  - payments
+  - checks
+  - authorizations
+  - disputes
+  - transactions
+  - statements
+  - tax-forms
+  - fees-rewards
+  - credit
+  - stop-payments
+  - webhooks
+  - sandbox
+verified_links:
+  website: 200
+  developer_portal: 200
+  documentation: 200
+  github_org: 200
+  linkedin: 200
+  blog: 200
+  terms_conditions: 200
+  privacy_policy: 200
+  status_page: 200
+  security: 200
+  integrations: 200
+notes: >-
+  Prior repo had 2 generic apis[] entries and no harvested spec. Deepened to
+  16 real resource-family API entries backed by 16 verbatim-split OpenAPI
+  files harvested from Unit's public OpenAPI. Pricing page (/pricing) returns
+  404 and there is no public standalone support page, so those common types
+  were omitted rather than invented.
