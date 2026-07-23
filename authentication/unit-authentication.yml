@@ -1,0 +1,52 @@
+generated: '2026-07-23'
+method: searched
+source: openapi/ securitySchemes + https://www.unit.co/docs/api/using-the-api
+docs: https://www.unit.co/docs/api/using-the-api#authentication
+summary:
+  types: [http, oauth2-bearer]
+  scheme: bearer
+  bearer_format: JWT (PASETO v2.public tokens)
+  token_types: [org, customer, cardholder]
+  scopes: true
+  two_factor: true
+overview: >-
+  Unit's API uses OAuth 2.0 Bearer tokens. Every request must carry an
+  Authorization: Bearer <token> header; an invalid, missing, or expired token
+  returns HTTP 401 Unauthorized. Tokens are issued with a set of scopes (see
+  scopes/unit-scopes.yml) that define per-resource read/write access. The OpenAPI
+  declares this as an http bearer (JWT) scheme; the token/scope/2FA model is
+  documented in the Using the API guide.
+token_types:
+  - name: Org API token
+    role: org
+    description: Broad system-level token, not restricted to a specific end customer. Can be used without 2FA for sensitive server-side operations.
+    docs: https://www.unit.co/docs/api/org-api-tokens
+  - name: Customer token
+    role: customer
+    description: >-
+      Short-lived, end-customer-scoped bearer token with built-in OTP Two-Factor
+      Authentication and a customizable expiry up to 24 hours. Recommended default
+      for all end-customer actions and required for PCI-sensitive card data.
+    docs: https://www.unit.co/docs/api/customer-api-tokens
+    created_via:
+      - createCustomerTokenVerification  # POST /customers/{customerId}/token/verification
+      - createCustomerToken              # POST /customers/{customerId}/token
+    custom_authentication: https://www.unit.co/docs/custom-authentication
+  - name: Cardholder token
+    role: cardholder
+    description: Single-card-scoped token granting a non-account-holder user sensitive card actions (view card details, manage PIN) after an OTP verification.
+    docs: https://www.unit.co/docs/api/card-holder-api-tokens/overview
+two_factor:
+  required_for:
+    - Applications (customer phone verified via OTP before submission)
+    - Sensitive (fund-movement) scopes — 2FA within the prior 24 hours
+    - PCI-sensitive card data and actions (requires a Customer token)
+  methods: [OTP via SMS or call, biometric, other industry-recognized methods]
+  validity: A successful 2FA is valid for up to 24 hours.
+  identity_endpoint: GET /identity  # returns decoded token info
+schemes:
+  - name: bearerAuth
+    type: http
+    scheme: bearer
+    bearerFormat: JWT
+    sources: [openapi/unit-openapi-source.json]

@@ -285,6 +285,8 @@ apis:
     - type: Documentation
       url: https://www.unit.co/docs/api/sandbox
 common:
+  - type: Authentication
+    url: authentication/unit-authentication.yml
   - type: Website
     url: https://www.unit.co/
   - type: DeveloperPortal
@@ -319,6 +321,60 @@ common:
     url: rate-limits/unit-rate-limits.yml
   - type: FinOps
     url: finops/unit-finops.yml
+  - type: APIReference
+    url: https://www.unit.co/docs/api
+  - type: GettingStarted
+    url: https://www.unit.co/docs/api/getting-started/tooling
+  - type: SignUp
+    url: https://app.unit.co/
+  - type: Postman
+    name: Unit API Postman Collection
+    url: https://unit.co/docs/UnitAPI.postman_collection.json
+  - type: Compliance
+    url: https://www.unit.co/security
+  - type: Deprecation
+    url: https://www.unit.co/docs/api/using-the-api#deprecations
+  - type: Authentication
+    url: authentication/unit-authentication.yml
+  - type: OAuthScopes
+    url: scopes/unit-scopes.yml
+  - type: Conventions
+    url: conventions/unit-conventions.yml
+  - type: Idempotency
+    url: conventions/unit-conventions.yml
+  - type: Packages
+    url: packages/unit-packages.yml
+  - type: SDKs
+    url: packages/unit-packages.yml
+  - type: ErrorCatalog
+    name: Unit API Error Codes
+    url: errors/unit-problem-types.yml
+  - type: ErrorCatalog
+    name: Unit ACH Return Reason Codes
+    url: errors/unit-ach-return-codes.yml
+  - type: Lifecycle
+    url: lifecycle/unit-lifecycle.yml
+  - type: Conformance
+    url: conformance/unit-conformance.yml
+  - type: Sandbox
+    url: sandbox/unit-sandbox.yml
+  - type: ChangeLog
+    name: Unit White-Label Components Changelog
+    url: changelog/unit-changelog.yml
+  - type: Components
+    url: components/unit-components.yml
+  - type: DataModel
+    url: data-model/unit-data-model.yml
+  - type: MCPServer
+    url: mcp/unit-mcp.yml
+  - type: LLMsTxt
+    url: llms/unit-llms.txt
+  - type: Overlay
+    url: overlays/unit-openapi-source-overlay.yaml
+  - type: Webhooks
+    url: asyncapi/unit-events-webhooks.yml
+  - type: AgentSkill
+    url: skills/_index.yml
 integrations:
   - name: The unit
   - name: X (twitter)
